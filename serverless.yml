@@ -4,8 +4,13 @@ frameworkVersion: ">=1.27.2 <2.0.0"
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs4.3
 
 functions:
-  hello:
-    handler: handler.greet
+  main:
+    handler: main/index.handler
+    events:
+      - http:
+          path: /
+          method: get
+  
